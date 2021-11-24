@@ -8,10 +8,6 @@ import * as styles from "../Search/styles.module.css";
 function Search({ setInput }) {
   const [searchInput, setSearchInput] = useState("");
 
-  // useEffect(() => {
-  //   console.log("search componentinde", searchInput);
-  // }, [searchInput]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
   };

@@ -3,7 +3,6 @@
   margin-left: 50px;
   display: flex;
   width: 200px;
-  /* border: 1px solid green; */
   justify-content: flex-start;
   align-items: center;
   color: black;
@@ -12,24 +11,19 @@
 
 .backText {
   margin-left: 10px;
-  /* border: 1px solid red; */
   font-size: 20px;
   font-weight: 700;
 }
 .container {
   margin-top: 25px;
-  /* border: 1px solid green; */
-
   border-radius: 15px;
   -webkit-box-shadow: 0px 5px 20px 1px rgba(0, 0, 0, 0.6);
   box-shadow: 0px 5px 20px 1px rgba(0, 0, 0, 0.6);
 }
 .coinName {
-  /* margin-left: 25px; */
   display: flex;
   align-items: center;
   gap: 10px;
-  /* border: 1px solid green; */
 }
 .coinSymbol {
   text-transform: uppercase;
@@ -37,14 +31,12 @@
   font-weight: 700;
 }
 .favoriteButton {
-  /* border: 1px solid red; */
   display: flex;
   align-items: center;
   margin-left: auto;
 }
 
 .subInfo {
-  /* margin-left: 25px; */
   display: flex;
   align-items: center;
   gap: 10px;
@@ -58,19 +50,16 @@
 .descGraphContainer {
   gap: 25px;
   display: flex;
-  /* align-items: center; */
+
   justify-content: space-between;
-  /* border: 3px solid green; */
 }
 .description {
   text-align: left;
   font-size: 18px;
   flex: 1 1 0px;
-  /* border: 1px solid orange; */
 }
 .graph {
   flex: 1 1 0px;
-  /* border: 1px solid purple; */
 }
 
 @media (max-width: 768px) {

@@ -11,7 +11,6 @@ import { useTheme } from "./Context/ThemeContext";
 import FAQ from "./components/FAQ";
 import Exchanges from "./components/Exchanges";
 import CoinDetails from "./components/CoinDetails";
-import Favorites from "./components/Favorites";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 
@@ -38,7 +37,6 @@ function App() {
                     <Route path="/coins" element={<List />} />
                     <Route path="/exchanges" element={<Exchanges />} />
                     <Route path="/faq" element={<FAQ />} />
-                    <Route path="/favorites" element={<Favorites />} />
                     <Route path="/coins/:id" element={<CoinDetails />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>

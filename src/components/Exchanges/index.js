@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Container from "@mui/material/Container";
 
-// import ExchangeTable from "../Exchanges/ExchangeTable";
 import PaginatedExchanges from "./PaginatedExchanges";
 import Search from "../Exchanges/Search";
 
