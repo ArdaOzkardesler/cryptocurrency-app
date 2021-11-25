@@ -242,7 +242,10 @@ export default function PaginatedTable({ input }) {
                 <Sparklines data={coin.sparkline_in_7d.price}>
                   <SparklinesLine
                     color={
-                      coin.price_change_percentage_7d_in_currency > 0
+                      coin.sparkline_in_7d.price[0] <
+                      coin.sparkline_in_7d.price[
+                        coin.sparkline_in_7d.price.length - 1
+                      ]
                         ? "green"
                         : "red"
                     }

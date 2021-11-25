@@ -16,24 +16,30 @@ function CoinDetails() {
   const [coinDetails, setCoinDetails] = useState({});
   const [graphData, setGraphData] = useState({});
 
-  useEffect(() => {
-    axios
-      .get(
-        `https://api.coingecko.com/api/v3/coins/${id}?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false`
-      )
+  const fetchCoinDetails = async (detailsURL) => {
+    await axios
+      .get(detailsURL)
       .then((response) => {
         setCoinDetails(response.data);
       })
       .catch((err) => alert(err));
+  };
 
-    axios
-      .get(
-        `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=7&interval=hourly`
-      )
+  const fetchGraphData = async (graphsURL) => {
+    await axios
+      .get(graphsURL)
       .then((response) => {
         setGraphData(response.data);
       })
       .catch((err) => alert(err));
+  };
+
+  useEffect(() => {
+    const detailsURL = `https://api.coingecko.com/api/v3/coins/${id}?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false`;
+    fetchCoinDetails(detailsURL);
+
+    const graphsURL = `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=7&interval=hourly`;
+    fetchGraphData(graphsURL);
   }, [id]);
 
   function createMarkup(data) {
@@ -150,21 +156,25 @@ function CoinDetails() {
 
                       fill: true,
                       backgroundColor:
-                        coin.price_change_percentage_7d_in_currency > 0
-                          ? "#16c78466"
-                          : "#ea394366",
+                        graphData.prices?.[0]?.[1] >
+                        graphData.prices?.[graphData.prices.length - 1]?.[1]
+                          ? "#ea394366"
+                          : "#16c78466",
                       borderColor:
-                        coin.price_change_percentage_7d_in_currency > 0
-                          ? "#16c784"
-                          : "#ea3943",
+                        graphData.prices?.[0]?.[1] >
+                        graphData.prices?.[graphData.prices.length - 1]?.[1]
+                          ? "#ea3943"
+                          : "#16c784",
                       pointBackgroundColor:
-                        coin.price_change_percentage_7d_in_currency > 0
-                          ? "#16c784"
-                          : "#ea3943",
+                        graphData.prices?.[0]?.[1] >
+                        graphData.prices?.[graphData.prices.length - 1]?.[1]
+                          ? "#ea3943"
+                          : "#16c784",
                       pointBorderColor:
-                        coin.price_change_percentage_7d_in_currency > 0
-                          ? "green"
-                          : "red",
+                        graphData.prices?.[0]?.[1] >
+                        graphData.prices?.[graphData.prices.length - 1]?.[1]
+                          ? "red"
+                          : "green",
                       pointHoverBackgroundColor: "#fff",
                       pointHoverBorderColor: "rgba(179,181,198,1)",
                       tooltipLabelColor: "rgba(179,181,198,1)",

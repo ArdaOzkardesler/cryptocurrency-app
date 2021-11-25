@@ -6,11 +6,16 @@ const ExchangeContext = createContext();
 const ExchangeProvider = ({ children }) => {
   const [exchanges, setExchanges] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get("https://api.coingecko.com/api/v3/exchanges")
+  const fetchExchanges = async (requestURL) => {
+    await axios
+      .get(requestURL)
       .then((response) => setExchanges(response.data))
       .catch((err) => alert(err));
+  };
+
+  useEffect(() => {
+    const requestURL = "https://api.coingecko.com/api/v3/exchanges";
+    fetchExchanges(requestURL);
   }, []);
 
   const values = { exchanges };
