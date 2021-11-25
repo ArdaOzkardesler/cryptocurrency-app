@@ -18,11 +18,6 @@ export default function DarkMode() {
         : (links[i].style.color = "black");
     }
 
-    const logo = document.getElementById("logo");
-    !darkMode
-      ? (logo.style.borderRight = "2px solid white")
-      : (logo.style.borderRight = "2px solid black");
-
     const html = document.getElementsByTagName("html");
     html[0].classList.toggle("dark");
   };
