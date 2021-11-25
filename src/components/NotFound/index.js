@@ -4,8 +4,8 @@ function NotFound() {
   return (
     <div>
       <img
-        src="https://cdn2.limonhost.net/wp-content/uploads/2020/10/404-not-found-sayfa-bulunamadi-hatasi-ve-cozumu.png"
-        alt=""
+        src="https://mefosh.com/static/media/error.a0396b78.png"
+        alt="404 Not Found"
       />
     </div>
   );
