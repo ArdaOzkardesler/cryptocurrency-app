@@ -1,10 +1,10 @@
-#Cryptomania
+# Cryptomania
 
 A website that provides information about cryptocurrency market cap rankings, daily and weekly price changes, charts, and more.
 
 Live website can be found here : [Cryptomania](https://cryptomania-kodluyoruz.netlify.app/)
 
-##Packages Used
+## Packages Used
 
 - [Material UI](https://mui.com/)
 - [React-router-dom](https://v5.reactrouter.com/web/guides/quick-start)
