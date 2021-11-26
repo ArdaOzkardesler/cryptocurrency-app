@@ -5,6 +5,7 @@ const CoinsContext = createContext();
 
 const CoinsProvider = ({ children }) => {
   const [coins, setCoins] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchCoins = async (requestURL) => {
     await axios
@@ -12,7 +13,8 @@ const CoinsProvider = ({ children }) => {
       .then((response) => {
         setCoins(response.data);
       })
-      .catch((err) => alert(err));
+      .catch((err) => alert(err))
+      .finally(setIsLoading(false));
   };
 
   useEffect(() => {
@@ -22,7 +24,7 @@ const CoinsProvider = ({ children }) => {
     fetchCoins(requestURL);
   }, []);
 
-  const values = { coins, setCoins };
+  const values = { coins, setCoins, isLoading };
   return (
     <CoinsContext.Provider value={values}>{children}</CoinsContext.Provider>
   );

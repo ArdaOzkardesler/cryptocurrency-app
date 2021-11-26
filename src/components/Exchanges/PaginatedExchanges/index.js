@@ -145,7 +145,7 @@ export default function PaginatedExchanges({ input }) {
               )
             : filteredExchanges
           ).map((exchange) => (
-            <TableRow key={exchange.id}>
+            <TableRow hover={true} key={exchange.id}>
               <TableCell style={{ width: "50px" }} component="th" scope="row">
                 <span>{exchange.trust_score_rank}</span>
               </TableCell>

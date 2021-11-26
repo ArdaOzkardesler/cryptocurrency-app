@@ -6,6 +6,7 @@ import Chip from "@mui/material/Chip";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import * as numbro from "numbro";
 import { Line } from "react-chartjs-2";
+import Skeleton from "@mui/material/Skeleton";
 
 import { useCoins } from "../../Context/CoinsContext";
 import * as styles from "../CoinDetails/styles.module.css";
@@ -15,6 +16,7 @@ function CoinDetails() {
   const { coins } = useCoins();
   const [coinDetails, setCoinDetails] = useState({});
   const [graphData, setGraphData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchCoinDetails = async (detailsURL) => {
     await axios
@@ -22,7 +24,8 @@ function CoinDetails() {
       .then((response) => {
         setCoinDetails(response.data);
       })
-      .catch((err) => alert(err));
+      .catch((err) => alert(err))
+      .finally(setIsLoading(false));
   };
 
   const fetchGraphData = async (graphsURL) => {
@@ -94,11 +97,130 @@ function CoinDetails() {
 
           <div className={styles.descGraphContainer}>
             <div className={styles.description}>
-              <p
-                dangerouslySetInnerHTML={createMarkup(
-                  coinDetails.description?.en
-                )}
-              ></p>
+              {isLoading ? (
+                <div style={{ padding: 40 }}>
+                  <Skeleton
+                    component={Container}
+                    animation="pulse"
+                    height={10}
+                    width="100%"
+                    style={{ marginBottom: 6 }}
+                  />
+                  <Skeleton
+                    component={Container}
+                    animation="pulse"
+                    height={10}
+                    width="100%"
+                    style={{ marginBottom: 6 }}
+                  />
+                  <Skeleton
+                    component={Container}
+                    animation="pulse"
+                    height={10}
+                    width="100%"
+                    style={{ marginBottom: 6 }}
+                  />
+                  <Skeleton
+                    component={Container}
+                    animation="pulse"
+                    height={10}
+                    width="100%"
+                    style={{ marginBottom: 6 }}
+                  />
+                  <Skeleton
+                    component={Container}
+                    animation="pulse"
+                    height={10}
+                    width="100%"
+                    style={{ marginBottom: 6 }}
+                  />
+                  <Skeleton
+                    component={Container}
+                    animation="pulse"
+                    height={10}
+                    width="100%"
+                    style={{ marginBottom: 6 }}
+                  />
+                  <Skeleton
+                    component={Container}
+                    animation="pulse"
+                    height={10}
+                    width="100%"
+                    style={{ marginBottom: 6 }}
+                  />
+                  <Skeleton
+                    component={Container}
+                    animation="pulse"
+                    height={10}
+                    width="100%"
+                    style={{ marginBottom: 6 }}
+                  />
+                  <Skeleton
+                    component={Container}
+                    animation="pulse"
+                    height={10}
+                    width="100%"
+                    style={{ marginBottom: 6 }}
+                  />
+                  <Skeleton
+                    component={Container}
+                    animation="pulse"
+                    height={10}
+                    width="100%"
+                    style={{ marginBottom: 6 }}
+                  />
+                  <Skeleton
+                    component={Container}
+                    animation="pulse"
+                    height={10}
+                    width="100%"
+                    style={{ marginBottom: 6 }}
+                  />
+                  <Skeleton
+                    component={Container}
+                    animation="pulse"
+                    height={10}
+                    width="100%"
+                    style={{ marginBottom: 6 }}
+                  />
+                  <Skeleton
+                    component={Container}
+                    animation="pulse"
+                    height={10}
+                    width="100%"
+                    style={{ marginBottom: 6 }}
+                  />
+                  <Skeleton
+                    component={Container}
+                    animation="pulse"
+                    height={10}
+                    width="100%"
+                    style={{ marginBottom: 6 }}
+                  />
+                  <Skeleton
+                    component={Container}
+                    animation="pulse"
+                    height={10}
+                    width="100%"
+                    style={{ marginBottom: 6 }}
+                  />
+                  <Skeleton
+                    variant="text"
+                    component={Container}
+                    animation="pulse"
+                    height={10}
+                    width="100%"
+                    style={{ marginBottom: 6 }}
+                  />
+                </div>
+              ) : (
+                <p
+                  dangerouslySetInnerHTML={createMarkup(
+                    coinDetails.description?.en
+                  )}
+                ></p>
+              )}
+
               <div
                 style={{
                   display: "flex",

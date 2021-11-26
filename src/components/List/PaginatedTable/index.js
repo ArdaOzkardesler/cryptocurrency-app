@@ -19,9 +19,11 @@ import LastPageIcon from "@mui/icons-material/LastPage";
 import { Link } from "react-router-dom";
 import * as numbro from "numbro";
 import { Sparklines, SparklinesLine } from "react-sparklines";
+// import Skeleton from "@mui/material/Skeleton";
 
 import { useCoins } from "../../../Context/CoinsContext";
 import * as styles from "../PaginatedTable/styles.module.css";
+// import { Container } from "@mui/material";
 
 function TablePaginationActions(props) {
   const theme = useTheme();
@@ -158,7 +160,7 @@ export default function PaginatedTable({ input }) {
               )
             : filteredCoins
           ).map((coin) => (
-            <TableRow key={coin.id}>
+            <TableRow hover={true} key={coin.id}>
               <TableCell style={{ width: "50px" }} component="th" scope="row">
                 <span>{coin.market_cap_rank}</span>
               </TableCell>
