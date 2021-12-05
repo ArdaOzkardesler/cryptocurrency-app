@@ -12,3 +12,7 @@ Live website can be found here : [Cryptomania](https://cryptomania-kodluyoruz.ne
 - [Chart.js](https://www.chartjs.org/)
 - [Numbro](http://numbrojs.com/format.html)
 - [React-sparklines](https://github.com/borisyankov/react-sparklines#readme)
+
+## API
+
+- [CoinGecko API](https://www.coingecko.com/en/api)
