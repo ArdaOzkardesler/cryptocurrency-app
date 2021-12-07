@@ -7,6 +7,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import * as numbro from "numbro";
 import { Line } from "react-chartjs-2";
 import Skeleton from "@mui/material/Skeleton";
+import { useThemes } from "../../Context/ThemeContext";
 
 import { useCoins } from "../../Context/CoinsContext";
 import * as styles from "../CoinDetails/styles.module.css";
@@ -14,6 +15,7 @@ import * as styles from "../CoinDetails/styles.module.css";
 function CoinDetails() {
   const { id } = useParams();
   const { coins } = useCoins();
+  const { themes } = useThemes();
   const [coinDetails, setCoinDetails] = useState({});
   const [graphData, setGraphData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -54,8 +56,16 @@ function CoinDetails() {
   return (
     <div>
       <Link className={styles.backLink} to="/coins">
-        <ArrowBackIcon fontSize="large" />
-        <span className={styles.backText}>Back to homepage</span>
+        <ArrowBackIcon
+          style={{ color: themes === "dark" ? "white" : "black" }}
+          fontSize="large"
+        />
+        <span
+          style={{ color: themes === "dark" ? "white" : "black" }}
+          className={styles.backText}
+        >
+          Back to homepage
+        </span>
       </Link>
       {filter.map((coin) => (
         <Container className={styles.container} key={coin.id} maxWidth="xl">

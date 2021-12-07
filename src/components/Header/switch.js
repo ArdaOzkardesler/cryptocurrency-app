@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
 import DarkModeToggle from "react-dark-mode-toggle";
-import { useTheme } from "../../Context/ThemeContext";
+import { useThemes } from "../../Context/ThemeContext";
 
 export default function DarkMode() {
   const [darkMode, setDarkMode] = useState(false);
-  const { themes, setThemes } = useTheme();
+  const { themes, setThemes } = useThemes();
 
   const changeTheme = () => {
     setDarkMode(!darkMode);

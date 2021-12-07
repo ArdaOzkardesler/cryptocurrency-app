@@ -20,6 +20,7 @@ import { Link } from "react-router-dom";
 import * as numbro from "numbro";
 import { Sparklines, SparklinesLine } from "react-sparklines";
 // import Skeleton from "@mui/material/Skeleton";
+import { useThemes } from "../../../Context/ThemeContext";
 
 import { useCoins } from "../../../Context/CoinsContext";
 import * as styles from "../PaginatedTable/styles.module.css";
@@ -96,6 +97,7 @@ TablePaginationActions.propTypes = {
 
 export default function PaginatedTable({ input }) {
   const { coins } = useCoins();
+  const { themes } = useThemes();
 
   const filteredCoins = coins.filter((coin) =>
     coin.name.toLowerCase().includes(input.toLowerCase())
@@ -173,7 +175,11 @@ export default function PaginatedTable({ input }) {
                     width="32"
                     height="32"
                   />
-                  <Link className={styles.coinLink} to={`/coins/${coin.id}`}>
+                  <Link
+                    style={{ color: themes === "dark" ? "white" : "black" }}
+                    className={styles.coinLink}
+                    to={`/coins/${coin.id}`}
+                  >
                     {coin.name}
                   </Link>
                   <span className={styles.nameSymbol}>{coin.symbol}</span>

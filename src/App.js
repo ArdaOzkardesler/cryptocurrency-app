@@ -7,7 +7,7 @@ import NotFound from "./components/NotFound";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { CoinsProvider } from "./Context/CoinsContext";
 import { ExchangeProvider } from "./Context/ExchangeContext";
-import { useTheme } from "./Context/ThemeContext";
+import { useThemes } from "./Context/ThemeContext";
 import FAQ from "./components/FAQ";
 import Exchanges from "./components/Exchanges";
 import CoinDetails from "./components/CoinDetails";
@@ -16,7 +16,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 
 function App() {
-  const { themes } = useTheme();
+  const { themes } = useThemes();
 
   const theme = createTheme({
     palette: {

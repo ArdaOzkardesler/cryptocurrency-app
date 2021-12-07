@@ -17,6 +17,7 @@ import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import LastPageIcon from "@mui/icons-material/LastPage";
 import * as numbro from "numbro";
+import { useThemes } from "../../../Context/ThemeContext";
 
 import { useExchanges } from "../../../Context/ExchangeContext";
 import * as styles from "../PaginatedExchanges/styles.module.css";
@@ -91,6 +92,7 @@ TablePaginationActions.propTypes = {
 };
 
 export default function PaginatedExchanges({ input }) {
+  const { themes } = useThemes();
   const { exchanges } = useExchanges();
 
   const filteredExchanges = exchanges.filter((exchange) =>
@@ -160,6 +162,7 @@ export default function PaginatedExchanges({ input }) {
                   />
 
                   <a
+                    style={{ color: themes === "dark" ? "white" : "black" }}
                     className={styles.exchangeLink}
                     href={exchange.url}
                     target="_blank"
