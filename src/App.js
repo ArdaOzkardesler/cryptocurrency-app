@@ -11,6 +11,7 @@ import { useTheme } from "./Context/ThemeContext";
 import FAQ from "./components/FAQ";
 import Exchanges from "./components/Exchanges";
 import CoinDetails from "./components/CoinDetails";
+import MobileLinks from "./components/MobileLinks";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 
@@ -32,6 +33,7 @@ function App() {
               <Router>
                 <div>
                   <Header />
+                  <MobileLinks />
                   <Routes>
                     <Route path="/" element={<List />} exact />
                     <Route path="/coins" element={<List />} />
