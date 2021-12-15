@@ -7,11 +7,8 @@ export default function DarkMode() {
   const [darkMode, setDarkMode] = useState(false);
   const { themes, setThemes } = useThemes();
 
-  // const checkStatus = () => {};
-
   useEffect(() => {
     if (localStorage.getItem("darkMode") === "true") {
-      // console.log("dark");
       setThemes("dark");
       const links = document.getElementsByTagName("a");
 
