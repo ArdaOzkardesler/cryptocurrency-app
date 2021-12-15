@@ -226,7 +226,9 @@ function CoinDetails() {
               ) : (
                 <p
                   dangerouslySetInnerHTML={createMarkup(
-                    coinDetails.description?.en
+                    coinDetails.description?.en !== ""
+                      ? coinDetails.description?.en
+                      : "-"
                   )}
                 ></p>
               )}
