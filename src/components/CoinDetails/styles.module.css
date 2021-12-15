@@ -66,4 +66,7 @@
   .descGraphContainer {
     flex-wrap: wrap;
   }
+  .backLink {
+    margin-left: 0;
+  }
 }
